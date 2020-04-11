@@ -1,5 +1,5 @@
 from .models import Post
-from django.views.generic import ListView,CreateView,TemplateView
+from django.views.generic import ListView,CreateView,TemplateView,FormView,DetailView
 from django.urls import reverse_lazy
 
 """
@@ -7,8 +7,15 @@ from django.urls import reverse_lazy
 """
 class PostTopListView(ListView):
     model = Post
-    template_name = 'post/post_list.html'
     paginate_by = 5
+
+"""
+詳細画面
+"""
+class PostDetailView(DetailView):
+    model = Post
+    template_name = 'post/post_detail.html'
+
 
 """
 投稿ページ
@@ -25,8 +32,11 @@ class PostFormView(CreateView):
 class PostUseView(TemplateView):
     template_name = 'post/post_use.html'
 
-
-
+""" 
+検索フォーム
+"""
+class PostSearchView(FormView):
+    pass
 
 
 

@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+{% for post in post_list %}
+<div class="toko">
+    <a href="{% url 'post:post_detail' %}">
+    <h4>{{ post.name }}</h4>
+    <p>{{  post.naiyou }}</p>
+    </a>
+</div>
+{% endfor %}
+
+{% include "pagination.html" %}
+{% include 'tapioka.html' %}
+<script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+    crossorigin="anonymous"></script>
+<script type="text/javascript" src="{% static 'js/main.js' %}"></script>   
+
+{% endblock %}
+    
