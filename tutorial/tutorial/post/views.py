@@ -1,6 +1,7 @@
 from .models import Post
 from django.views.generic import ListView,CreateView,TemplateView,FormView,DetailView
 from django.urls import reverse_lazy
+from .forms import ClaimForm
 
 """
 トップページ
@@ -37,6 +38,13 @@ class PostUseView(TemplateView):
 """
 class PostSearchView(FormView):
     pass
+
+"""
+クレーム欄
+"""
+class PostClaimView(FormView):
+    form_class = ClaimForm
+    template_name = 'post/post_form.html'
 
 
 
