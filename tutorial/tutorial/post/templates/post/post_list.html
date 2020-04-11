@@ -2,14 +2,14 @@
 {% load static %}
 
 {% block content %}
-
+<header class="sub-headers">投稿一覧</header>
 {% include "search.html" %}
 
 {% for post in post_list %}
 <div class="toko">
     <a class="detail-link" href="#">
     <h4>{{ post.name }}</h4>
-    <p>{{  post.naiyou }}</p>
+    <p>{{ post.naiyou }}</p>
     </a>
 </div>
 {% endfor %}

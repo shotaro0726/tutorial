@@ -16,11 +16,10 @@
     
         <ul class="nav-list">
             <li class="navs"><a class="tops" href="#">使い方</a></li>
-            <li class="navs"><a class="tops" href="#">投稿してみる</a></li>
-            <li class="navs"><a class="tops" href="#">クレーム</a></li>
+            <li class="navs"><a class="tops" href="{% url 'post:post_create' %}">投稿してみる</a></li>
+            <li class="navs"><a class="tops" href="{% url 'post:post_claim' %}">クレーム</a></li>
         </ul>
     </header>
-    <header class="sub-headers">投稿一覧</header>
 
 {% block content %}{% endblock %}
 
