@@ -3,11 +3,11 @@
 
 {% block content %}
 <header class="sub-headers">クレーム</header>
+<section class="post-form">
     <form action="" method="POST">
-        
         {{form.as_p}}
         {% csrf_token %}
-        <button type="submit">送信</button>
-
+        <button type="submit" class="submit">送信</button>
     </form>
+</section>
 {% endblock %}

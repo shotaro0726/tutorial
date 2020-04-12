@@ -1,9 +1,13 @@
 {% extends "base.html" %}
+{% load static %}
 
 {% block content %}
-<header class="sub-headers">投稿する</header>
-
-{% for post in post_list %}
-
-
+<header class="sub-headers">投稿してみる</header>
+<section class="post-form">
+    <form action="" method="POST">
+        {% csrf_token %}
+        {{form.as_p}}
+        <button type="submit" class="submit">投稿する</button>
+    </form>
+</section>
 {% endblock %}

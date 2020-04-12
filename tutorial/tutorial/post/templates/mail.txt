@@ -1,0 +1,4 @@
+{% if name %} {{ name }} さんからクレームがはいりました。{% else %}匿名{% endif %}
+
+{{ text }}
+{{ email }}

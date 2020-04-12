@@ -31,9 +31,7 @@ class PostCreateFormView(CreateView):
     template_name = 'post/post_create_form.html'
     success_url = reverse_lazy('post:post_top')
 
-    def get_success_url(self):
-        return reverse('post:post_top', kwargs={'pk': self.object.pk})
-
+    
 """
 使い方のページ
 """
@@ -51,15 +49,16 @@ class PostSearchView(FormView):
 """
 class PostClaimView(FormView):
     form_class = ClaimForm
+    success_url = reverse_lazy('post:post_top')
     template_name = 'post/post_form.html'
 
     def form_valid(self, form):
         subject = 'クレームが入りました。'
-        message = render_to_string('mail.txt',form.clean_data,self.request)
+        message = render_to_string('mail.txt',form.cleaned_data,self.request)
         from_email = 'shoutaro0726@gmail.com'
         recipient_list = ['shoutaro0726@gmail.com']
         send_mail(subject, message, from_email, recipient_list)
-        return redirect('post:post_list')
+        return redirect('post:post_top')
     
 
 

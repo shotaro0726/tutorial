@@ -17,6 +17,7 @@ header .head-top {
 }
 
 header .head-top-link {
+    text-decoration: none;
     color: #000000;
 }
 
@@ -41,6 +42,7 @@ header .head-top-link {
     background-color: #000000;
     color: #fff;
     text-decoration: none;
+    margin-bottom: 15px;
 }
 
 .search_container {
@@ -148,12 +150,12 @@ header .head-top-link {
         width: 100%;
         text-align: center;
     }
-    .pager .pagination li.pre span::after {
+    /* .pager .pagination li.pre span::after {
         content:
     }
     .pager .pagination li.next span::before {
         content:
-    }
+    } */
 }
 
 #page_top {
@@ -175,3 +177,44 @@ header .head-top-link {
     text-decoration: none;
 }
 
+.post-form {
+    width: 60%;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.post-form label {
+    display: block;
+}
+
+.post-form p {
+    margin-bottom: 8px;
+}
+
+.post-form input, .post-form textarea {
+    padding: 4px;
+    width: 100%;
+    margin-bottom: 8px;
+}
+
+.post-form select {
+    padding: 4px;
+    margin-bottom: 8px;
+}
+
+.post-form .submit {
+    margin-top: 8px;
+    margin-bottom: 8px;
+    padding: 8px 36px;
+    border: none;
+    color: #ffffff;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    background-color: #4CAF50;
+    border-radius: 2px;
+}
+
+.post-form .delete {
+    background-color: #f44336;
+}
