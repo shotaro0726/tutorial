@@ -6,6 +6,7 @@ from django.core.mail import send_mail
 from django.template.loader import render_to_string
 from django.shortcuts import redirect
 from django.urls import reverse
+from django.db.models import Q
 
 """
 トップページ
@@ -41,8 +42,17 @@ class PostUseView(TemplateView):
 """ 
 検索フォーム
 """
-class PostSearchView(FormView):
-    pass
+class PostSearchView(ListView):
+    model = Post
+    paginate_by = 5
+    template_name = 'post/post_search_form.html'
+
+    def get_queryset(self):
+        queryset = Post.objects.all()
+        keyword = self.request.GET.get('keyword')
+        if keyword:
+            queryset = queryset.filter(Q(name__icontains=keyword) | Q(naiyou__icontains=keyword))
+        return queryset
 
 """
 クレーム欄
