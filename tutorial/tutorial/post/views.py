@@ -72,7 +72,7 @@ class PostClaimView(FormView):
 
     def form_valid(self, form):
         subject = 'クレームが入りました。'
-        message = render_to_string('mail.txt',form.cleaned_data,self.request)
+        message = render_to_string('mail/mail.txt',form.cleaned_data,self.request)
         from_email = 'shoutaro0726@gmail.com' #任意のメールアドレス
         recipient_list = ['shoutaro0726@gmail.com'] #任意のメールアドレス
         send_mail(subject, message, from_email, recipient_list)
