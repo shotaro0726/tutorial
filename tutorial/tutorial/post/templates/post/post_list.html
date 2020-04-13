@@ -7,8 +7,8 @@
 
 {% for post in post_list %}
 <div class="toko">
-    <a class="detail-link" href="#">
-    <h4>{{ post.name }}</h4>
+    <a class="detail-link" href="{% url 'post:post_detail' post.pk %}">
+    <h4 style="color: red;">{{ post.name }}</h4>
     <p>{{ post.naiyou }}</p>
     </a>
 </div>

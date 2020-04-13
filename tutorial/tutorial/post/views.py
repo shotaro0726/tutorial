@@ -1,5 +1,5 @@
 from .models import Post
-from django.views.generic import ListView,CreateView,TemplateView,FormView,DetailView
+from django.views.generic import ListView,CreateView,TemplateView,FormView,DetailView,UpdateView,DeleteView
 from django.urls import reverse_lazy
 from .forms import ClaimForm, PostForm
 from django.core.mail import send_mail
@@ -22,7 +22,22 @@ class PostDetailView(DetailView):
     model = Post
     template_name = 'post/post_detail.html'
 
+"""
+編集
+"""
+class PostUpdateView(UpdateView):
+    model = Post
+    form_class = PostForm
+    template_name = 'post/post_create_form.html'
+    success_url = reverse_lazy('post:post_top')
 
+"""
+削除
+"""
+class PostDeleteView(DeleteView):
+    model = Post
+    success_url = reverse_lazy('post:post_top')
+    
 """
 投稿ページ
 """
@@ -31,13 +46,6 @@ class PostCreateFormView(CreateView):
     form_class = PostForm
     template_name = 'post/post_create_form.html'
     success_url = reverse_lazy('post:post_top')
-
-    
-"""
-使い方のページ
-"""
-class PostUseView(TemplateView):
-    template_name = 'post/post_use.html'
 
 """ 
 検索フォーム

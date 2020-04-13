@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<header class="sub-headers">削除しますがよろしいでしょうか？</header>
+
+<form method="POST">
+    {% csrf_token %}
+    {{ form }}
+    <div class="btn-center">
+        <button class="btn" type="submit">削除</button>
+        <a class="back" href="{% url 'post:post_detail' post.pk %}">戻る</a>
+    </div>    
+</form>
+{% endblock %}

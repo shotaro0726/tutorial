@@ -4,5 +4,12 @@
 {% block content %}
 <header class="sub-headers">投稿詳細</header>
 
+<a href="{% url 'post:post_update' post.pk %}" class="btn-border">編集</a>
+<a href="{% url 'post:post_delete' post.pk %}" class="btn-border2">削除</a>
+
+<div class="toko">
+        <h4 style="color: red;">{{ post.name }}</h4>
+        <p>{{ post.naiyou }}</p>
+</div>
 
 {% endblock %}
